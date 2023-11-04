@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muallif</title>
+</head>
+<body>
+    <h1>Eng ko'p kitob yozgan 3 ta muallif</h1>
+    {% for i in muallif %}
+    <h2>{{i.id}}. {{i}}</h2>
+    {% endfor %}
+</body>
+</html>

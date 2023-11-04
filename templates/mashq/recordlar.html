@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recordlar</title>
+</head>
+<body>
+    <br>
+    <h1>Recordlar ro'yxati: </h1>
+    <br>
+    <form method = 'post' action="/recordlar/">{% csrf_token %}
+        <input type = 'text' name = qidirish>
+        <button type = 'submit'>Qidirish</button>
+    </form>
+    {% for record in recordlar %}
+    <br>
+    <h2 style="display:inline;">{{record.id}}. <a href="/record/{{record.id}}/">{{record}} </a></h2>
+    <a href="/record_tasdiqlash/{{record.id}}/"><button>Delete</button></a>
+    {% if record.qaytardi %}
+        {{ pass }}
+    {% else %}
+        <a href = "/record_edit/{{record.id}}/"><button>Edit</button></a><br>
+    {% endif %}
+    {% endfor %}
+    <br>
+    <form method="post" action="/recordlar/"> {% csrf_token %}
+        {{form.as_p}}
+<!--        <select name="studenti">-->
+<!--            {% for student in students %}-->
+<!--            <option value="{{student.id}}">{{student.ism}}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--        <select name="kitobi">-->
+<!--            {% for kitob in kitoblar %}-->
+<!--            <option value="{{kitob.id}}">{{kitob.nom}}</option>-->
+<!--            {% endfor %}-->
+<!--        </select>-->
+<!--        <label>Topshirdi: </label>-->
+<!--          <input type="checkbox" name = 'topshirdi' checked>-->
+        <button type="submit">Qo'shish</button>
+    </form>
+</body>
+</html>

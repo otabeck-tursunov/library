@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Muallif edit</title>
+</head>
+<body>
+  <br>
+  <br>
+  <h1>Mualliflarni tahrirlash: </h1>
+  <br>
+ <form method="post" action="/muallif_edit/{{muallif.id}}/"> {% csrf_token %}
+   <input type="text" name = "ism" value="{{muallif.ism}}">
+   {% if muallif.tirik %}
+   <input type="checkbox" name = "tirik">
+   {% else %}
+   <input type="checkbox" name = "tirik" checked >
+   {% endif %}
+   <input type="number" name = "kitob_soni" value="{{muallif.kitob_soni}}">
+   <button type="submit">Edit</button>
+ </form>
+</body>
+</html>

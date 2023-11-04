@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student tahrirlash</title>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Talaba ma'lumotlarini o'zgartiring: </h1>
+    <br>
+    <form method="post" action="/student_edit/{{student.id}}/" >{% csrf_token %}
+        <input type = 'text' name = 'ismi' value = "{{student.ism}}">
+        {% if student.bitiruvchi %}
+        <input type = 'checkbox' name = 'bitiruvchi' checked>
+        {% else %}
+        <input type = 'checkbox' name = 'bitiruvchi'>
+        {% endif %}
+        <input type = 'number' name = 'kitob_soni' value="{{student.kitob_soni}}">
+        <button type="submit">Edit</button>
+    </form>
+</body>
+</html>

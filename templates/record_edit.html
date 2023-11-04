@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Record edit</title>
+</head>
+<body>
+    <br>
+    <h1>Edit records: </h1>
+    <br>
+    <form method="post" action="/record_edit/{{record.id}}/"> {% csrf_token %}
+        <label>Qaytardi: </label>
+        {% if record.qaytardi %}
+        <input type = 'checkbox' name = 'qaytardi' checked>
+        {% else %}
+        <input type = 'checkbox' name = 'qaytardi'>
+        {% endif %}
+        <br>
+        <label>Qaytargan sanasi: </label>
+        <input type="date" name = 'qaytargan_sana' placeholder="sana">
+        {% if record.qaytardi %}
+        {{  pass }}
+        {% else %}
+        <button type="submit">Edit</button>
+        {% endif %}
+    </form>
+</body>
+</html>

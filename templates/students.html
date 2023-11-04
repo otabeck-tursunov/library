@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Barcha studentlar ro'yxati</title>
+</head>
+<body>
+    <h1>Studentlar</h1>
+    <br>
+    <br>
+    <form method = 'get' action="/students/">
+        <input type = 'text' name = q_sozi>
+        <button type = 'submit'>Search</button>
+    </form>
+    <br>
+    <br>
+
+    {% for student in list %}
+    <h2 style="display:inline;">{{student.id}}. <a href="/talaba/{{student.id}}/">{{student}} </a></h2>
+    <a href="/student_tasdiqlash/{{student.id}}/"><button>Delete</button></a>
+    <a href="/student_edit/{{student.id}}/"><button>Edit</button></a><br>
+    {% endfor %}
+
+<!--    {% for i in list %}-->
+<!--    <h2 style="display:inline;">{{i.id}}. <a href="/student/{{i.id}}/">{{i}} </a></h2>-->
+<!--    <a href = "/student_ochir/{{i.id}}/"><button>O'chirish</button><br><br><br></a>-->
+<!--    {% endfor %}-->
+    <form method = 'post' action="/students/">{% csrf_token%}
+        {{form}}
+<!--        <input type="text" name = "name" placeholder="Ism">-->
+<!--        <select name = 'gender'>-->
+<!--            <option value="Erkak">Erkak</option>-->
+<!--            <option value="Ayol">Ayol</option>-->
+<!--        </select>-->
+<!--        <input type="text" name = "books" placeholder="Kitob soni">-->
+<!--        <label>Bitiruvchi</label>-->
+<!--        <input type = 'checkbox' name = 'bt'>-->
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

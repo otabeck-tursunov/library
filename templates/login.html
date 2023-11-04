@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <br>
+    <br>
+    <h1>Tizimga kirish.</h1>
+    <br>
+    <form method="post" action="/"> {% csrf_token %}
+        <input type="text" name = 'login' placeholder="login">
+        <input type="password" name="parol" placeholder="parol">
+        <button type="submit">Kirish</button>
+    </form>
+</body>
+</html>
